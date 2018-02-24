@@ -105,3 +105,59 @@ height | N | | Players height
 preferred_foot | N | | Preferred foot
 playing_position | N | | Playing position
 pro_status | N | | Professional status
+
+
+## Login
+
+> The above command returns JSON structured like this:
+
+```json
+{
+ "auth_token": "amazing_api_key"
+}
+```
+
+This endpoint allows a user to fetch the users authorization key.
+
+### HTTP Request
+
+`GET http://example.com/api/v1/authenticate`
+
+### Query Parameters
+
+Parameter | Mandatory | Default | Description
+--------- | --------- | ------- | -----------
+email | Y | | User email
+password | Y | | User's password
+
+## Public Profile
+
+```ruby
+::V1::User::Show.(params)
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "following": false,
+  "personal_profile": {
+    "id": 7
+  },
+  "connection_status": "pending"
+}
+
+```
+
+This api endpoint should be used to fetch a particular user's profile
+
+### HTTP Request
+
+`GET http://example.com/api/v1/users/<:id>/profile`
+
+### Query Parameters
+
+Parameter | Mandatory | Default | Description
+--------- | --------- | ------- | -----------
+id | Y | | Requested User Id
