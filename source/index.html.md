@@ -48,22 +48,29 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+{
+  "user": {
+    "id": 10,
+    "career_history": [],
+    "personal_profile": {
+      "id": 13,
+      "first_name": "Rui",
+      "middle_name": null,
+      "last_name": "Baltazar",
+      "birthday": "1998-02-10",
+      "nationality_country_code": null,
+      "residence_country_code": null,
+      "place_of_birth": null,
+      "weight": null,
+      "height": null,
+      "preferred_foot": null,
+      "languages": null,
+      "playing_position": null,
+      "pro_status": null,
+      "total_caps": null
+    }
   }
-]
+}
 ```
 
 This endpoint allows a new user to be registered.
@@ -79,7 +86,7 @@ Parameter | Mandatory | Default | Description
 email | Y | | User registration email
 password | Y | | User's preferred password
 password_confirmation | Y |  | Double checking of password
-role | Y | | Which role is the user registering as. Choice from `Player`, `Manager`, `Coach`, `Scout`, `Director`
+role_name | Y | | Which role is the user registering as. Choice from `player`, `manager`, `coach`, `scout`, `director`
 personal_profile | Y |  | key for personal profile attributes
 
 The following attributes can/have to be passed in the `personal_profile`
