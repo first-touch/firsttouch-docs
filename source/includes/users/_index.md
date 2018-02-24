@@ -114,7 +114,7 @@ This api endpoint should be used to fetch a particular user's profile
 
 ### HTTP Request
 
-`GET http://example.com/api/v1/users/<:id>/profile`
+`GET http://example.com/api/v1/users/:id/profile`
 
 ### Query Parameters
 
