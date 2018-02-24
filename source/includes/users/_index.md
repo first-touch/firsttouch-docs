@@ -16,19 +16,19 @@
     "personal_profile": {
       "id": 13,
       "first_name": "Rui",
-      "middle_name": null,
+      "middle_name": "Pedro",
       "last_name": "Baltazar",
       "birthday": "1998-02-10",
-      "nationality_country_code": null,
-      "residence_country_code": null,
-      "place_of_birth": null,
-      "weight": null,
-      "height": null,
-      "preferred_foot": null,
-      "languages": null,
-      "playing_position": null,
-      "pro_status": null,
-      "total_caps": null
+      "nationality_country_code": "PT",
+      "residence_country_code": "SG",
+      "place_of_birth": "Coimbra",
+      "weight": "37",
+      "height": "137",
+      "preferred_foot": "both",
+      "languages": ["PT", "EN", "IT"],
+      "playing_position": "Goalkeeper",
+      "pro_status": "Amateur",
+      "total_caps": 0
     }
   }
 }
