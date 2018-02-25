@@ -10,6 +10,7 @@ toc_footers:
 includes:
   - users/index
   - clubs/index
+  - notes/index
   - errors
 
 search: true
