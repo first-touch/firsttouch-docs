@@ -228,6 +228,14 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
           </li>
           <li>
+            <a href="#platform-generic-api-endpoints" class="toc-h1 toc-link" data-title="platform-generic-api-endpoints">Platform Generic API endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#playing-positions" class="toc-h2 toc-link" data-title="playing-positions">Playing Positions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#users" class="toc-h1 toc-link" data-title="users">Users</a>
               <ul class="toc-list-h2">
                   <li>
@@ -242,6 +250,20 @@
               </ul>
           </li>
           <li>
+            <a href="#career-entries" class="toc-h1 toc-link" data-title="career-entries">Career Entries</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create" class="toc-h2 toc-link" data-title="create">Create</a>
+                  </li>
+                  <li>
+                    <a href="#update" class="toc-h2 toc-link" data-title="update">Update</a>
+                  </li>
+                  <li>
+                    <a href="#delete" class="toc-h2 toc-link" data-title="delete">Delete</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#clubs" class="toc-h1 toc-link" data-title="clubs">Clubs</a>
               <ul class="toc-list-h2">
                   <li>
@@ -249,6 +271,20 @@
                   </li>
                   <li>
                     <a href="#countries" class="toc-h2 toc-link" data-title="countries">Countries</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#notes" class="toc-h1 toc-link" data-title="notes">Notes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create" class="toc-h2 toc-link" data-title="create">Create</a>
+                  </li>
+                  <li>
+                    <a href="#login" class="toc-h2 toc-link" data-title="login">Login</a>
+                  </li>
+                  <li>
+                    <a href="#public-profile" class="toc-h2 toc-link" data-title="public-profile">Public Profile</a>
                   </li>
               </ul>
           </li>
@@ -281,6 +317,33 @@
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
+<h1 id='platform-generic-api-endpoints'>Platform Generic API endpoints</h1><h2 id='playing-positions'>Playing Positions</h2><pre class="highlight ruby tab-ruby"><code><span class="no">FirstTouch</span><span class="o">::</span><span class="no">PLAYING_POSITIONS</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"Goalkeeper"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Sweeper (Centre)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Defender (Right)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Defender (Left)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Defender (Centre)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Wing-back (Right)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Wing-back (Left)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Defensive Midfielder (Centre)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Midfielder (Right)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Midfielder (Left)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Midfielder (Centre)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Attacking Midfielder (Centre)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Winger (Right)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Winger (Left)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Second Striker (Centre)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Striker (Centre)"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows the requester to fetch the possible playing positions.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://example.com/api/v1/settings/playing_positions</code></p>
 <h1 id='users'>Users</h1><h2 id='sign-up-register'>Sign up/Register</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">User</span><span class="o">::</span><span class="no">Register</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 </code></pre>
 <blockquote>
@@ -303,7 +366,9 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
       </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"137"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"preferred_foot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EN"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"playing_position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goalkeeper"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"playing_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goalkeeper"</span><span class="p">,</span><span class="w"> </span><span class="s2">"skill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0-5]"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
       </span><span class="s2">"pro_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amateur"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"total_caps"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -333,6 +398,416 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>Y</td>
 <td></td>
 <td>User&#39;s preferred password</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>Y</td>
+<td></td>
+<td>Double checking of password</td>
+</tr>
+<tr>
+<td>role_name</td>
+<td>Y</td>
+<td></td>
+<td>Which role is the user registering as. Choice from <code>player</code>, <code>manager</code>, <code>coach</code>, <code>scout</code>, <code>director</code></td>
+</tr>
+<tr>
+<td>club_ids</td>
+<td>Y</td>
+<td></td>
+<td>Which club is the user associated with, if any</td>
+</tr>
+<tr>
+<td>personal_profile</td>
+<td>Y</td>
+<td></td>
+<td>key for personal profile attributes</td>
+</tr>
+</tbody></table>
+
+<p>The following attributes can/have to be passed in the <code>personal_profile</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>Y</td>
+<td></td>
+<td>User&#39;s first name</td>
+</tr>
+<tr>
+<td>middle_name</td>
+<td>N</td>
+<td></td>
+<td>User&#39;s middle name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>Y</td>
+<td></td>
+<td>User&#39;s last name</td>
+</tr>
+<tr>
+<td>birthday</td>
+<td>Y</td>
+<td></td>
+<td>User&#39;s birthday</td>
+</tr>
+<tr>
+<td>nationality_country_code</td>
+<td>N</td>
+<td></td>
+<td>Players nationality country code</td>
+</tr>
+<tr>
+<td>residence_country_code</td>
+<td>N</td>
+<td></td>
+<td>Players residence country code</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>N</td>
+<td></td>
+<td>Players weight in Kg</td>
+</tr>
+<tr>
+<td>height</td>
+<td>N</td>
+<td></td>
+<td>Players height in cm</td>
+</tr>
+<tr>
+<td>preferred_foot</td>
+<td>N</td>
+<td></td>
+<td>Preferred foot</td>
+</tr>
+<tr>
+<td>playing_positions</td>
+<td>N</td>
+<td></td>
+<td>JSON Array with the following structure per playing position: { position: <position name>, skill: <0-5> }</td>
+</tr>
+<tr>
+<td>pro_status</td>
+<td>N</td>
+<td></td>
+<td>Professional status</td>
+</tr>
+</tbody></table>
+<h2 id='login'>Login</h2>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amazing_api_key"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows a user to fetch the users authorization key.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://example.com/api/v1/authenticate</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Y</td>
+<td></td>
+<td>User email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Y</td>
+<td></td>
+<td>User&#39;s password</td>
+</tr>
+</tbody></table>
+<h2 id='public-profile'>Public Profile</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">User</span><span class="o">::</span><span class="no">Show</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"following"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"personal_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"connection_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This api endpoint should be used to fetch a particular user&#39;s profile</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://example.com/api/v1/users/:id/profile</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Y</td>
+<td></td>
+<td>Requested User Id</td>
+</tr>
+</tbody></table>
+<h1 id='career-entries'>Career Entries</h1><h2 id='create'>Create</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">CareerEntry</span><span class="o">::</span><span class="no">Create</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"career_entry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1998-02-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1999-02-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"club"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F. C. Barcelona"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows a new user to be registered.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://example.com/api/v1/career_entries</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>club_id</td>
+<td>Y</td>
+<td></td>
+<td>Club which the user represented</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Y</td>
+<td></td>
+<td>Career entry Start date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>N</td>
+<td></td>
+<td>Career entry End date. Might be nil which would mean ongoing</td>
+</tr>
+<tr>
+<td>role_name</td>
+<td>Y</td>
+<td></td>
+<td>Which role the user was representing: <code>player</code>, <code>manager</code>, <code>coach</code>, <code>scout</code>, <code>director</code></td>
+</tr>
+</tbody></table>
+<h2 id='update'>Update</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">CareerEntry</span><span class="o">::</span><span class="no">Update</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"career_entry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1998-02-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1999-02-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"club"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F. C. Barcelona"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows a new user to be registered.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT http://example.com/api/v1/career_entries/10</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>club_id</td>
+<td>Y</td>
+<td></td>
+<td>Club which the user represented</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Y</td>
+<td></td>
+<td>Career entry Start date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>N</td>
+<td></td>
+<td>Career entry End date. Might be nil which would mean ongoing</td>
+</tr>
+<tr>
+<td>role_name</td>
+<td>Y</td>
+<td></td>
+<td>Which role the user was representing: <code>player</code>, <code>manager</code>, <code>coach</code>, <code>scout</code>, <code>director</code></td>
+</tr>
+</tbody></table>
+<h2 id='delete'>Delete</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">CareerEntry</span><span class="o">::</span><span class="no">Delete</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"career_entry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows a new user to be registered.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE http://example.com/api/v1/career_entries/10</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<p>-</p>
+<h1 id='clubs'>Clubs</h1><h2 id='search'>Search</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">Club</span><span class="o">::</span><span class="no">Index</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"clubs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bananas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint to search for a club. It allows searching by a keyword using <code>q</code> param
+or a country code using <code>country</code> param, or both combined</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://example.com/api/v1/clubs/search</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td>N</td>
+<td></td>
+<td>Keyword to match club&#39;s name</td>
+</tr>
+<tr>
+<td>country</td>
+<td>N</td>
+<td></td>
+<td>ISO Country Code to filter the clubs</td>
+</tr>
+</tbody></table>
+<h2 id='countries'>Countries</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">Club</span><span class="o">::</span><span class="no">Countries</span><span class="o">.</span><span class="p">()</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Portugal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States of America"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to fetch the countries for which we have clubs available in the
+database.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://example.com/api/v1/clubs/countries</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h1 id='notes'>Notes</h1><h2 id='create'>Create</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">Note</span><span class="o">::</span><span class="no">Create</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="ss">current_user: </span><span class="n">user</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"two"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"three"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint allows a new user to be registered.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://example.com/api/v1/notes</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p>These params should be passed inside key <code>note</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>labels</td>
+<td>N</td>
+<td>[]</td>
+<td>Array of labels associated with the note</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Y</td>
+<td></td>
+<td>Note name</td>
 </tr>
 <tr>
 <td>password_confirmation</td>
@@ -503,78 +978,6 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td></td>
 <td>Requested User Id</td>
 </tr>
-</tbody></table>
-<h1 id='clubs'>Clubs</h1><h2 id='search'>Search</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">Club</span><span class="o">::</span><span class="no">Index</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"clubs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bananas"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT"</span><span class="w">
-  </span><span class="p">}]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<p>This endpoint to search for a club. It allows searching by a keyword using <code>q</code> param
-or a country code using <code>country</code> param, or both combined</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/v1/clubs/search</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Mandatory</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>q</td>
-<td>N</td>
-<td></td>
-<td>Keyword to match club&#39;s name</td>
-</tr>
-<tr>
-<td>country</td>
-<td>N</td>
-<td></td>
-<td>ISO Country Code to filter the clubs</td>
-</tr>
-</tbody></table>
-<h2 id='countries'>Countries</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">Club</span><span class="o">::</span><span class="no">Countries</span><span class="o">.</span><span class="p">()</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-      </span><span class="s2">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Portugal"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States of America"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint is used to fetch the countries for which we have clubs available in the
-database.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/api/v1/clubs/countries</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Mandatory</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
 <p>In FirstTouch we use a concept of Endpoint where all the generic error codes are
