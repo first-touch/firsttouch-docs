@@ -8,7 +8,9 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - platform/index
   - users/index
+  - users/career_entries
   - clubs/index
   - notes/index
   - errors

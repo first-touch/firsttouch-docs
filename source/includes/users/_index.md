@@ -26,7 +26,9 @@
       "height": "137",
       "preferred_foot": "both",
       "languages": ["PT", "EN", "IT"],
-      "playing_position": "Goalkeeper",
+      "playing_positions": [
+        { "position": "Goalkeeper", "skill": "[0-5]" }
+      ],
       "pro_status": "Amateur",
       "total_caps": 0
     }
@@ -48,6 +50,7 @@ email | Y | | User registration email
 password | Y | | User's preferred password
 password_confirmation | Y |  | Double checking of password
 role_name | Y | | Which role is the user registering as. Choice from `player`, `manager`, `coach`, `scout`, `director`
+club_ids | Y |  | Which club is the user associated with, if any
 personal_profile | Y |  | key for personal profile attributes
 
 The following attributes can/have to be passed in the `personal_profile`
@@ -58,13 +61,12 @@ first_name | Y | | User's first name
 middle_name | N | | User's middle name
 last_name | Y | | User's last name
 birthday | Y |  | User's birthday
-club_id | Y |  | Which club is the user associated with, if any
 nationality_country_code | N | | Players nationality country code
 residence_country_code | N | | Players residence country code
-weight | N | | Players weight
-height | N | | Players height
+weight | N | | Players weight in Kg
+height | N | | Players height in cm
 preferred_foot | N | | Preferred foot
-playing_position | N | | Playing position
+playing_positions | N | | JSON Array with the following structure per playing position: { position: <position name>, skill: <0-5> }
 pro_status | N | | Professional status
 
 ## Login
