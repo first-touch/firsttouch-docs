@@ -247,6 +247,15 @@
                   <li>
                     <a href="#public-profile" class="toc-h2 toc-link" data-title="public-profile">Public Profile</a>
                   </li>
+                  <li>
+                    <a href="#personal-profile" class="toc-h2 toc-link" data-title="personal-profile">Personal Profile</a>
+                  </li>
+                  <li>
+                    <a href="#update-personal-profile" class="toc-h2 toc-link" data-title="update-personal-profile">Update Personal Profile</a>
+                  </li>
+                  <li>
+                    <a href="#update-personal-avatar" class="toc-h2 toc-link" data-title="update-personal-avatar">Update Personal Avatar</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -344,7 +353,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <p>This endpoint allows the requester to fetch the possible playing positions.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://example.com/api/v1/settings/playing_positions</code></p>
-<h1 id='users'>Users</h1><h2 id='sign-up-register'>Sign up/Register</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">User</span><span class="o">::</span><span class="no">Register</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<h1 id='users'>Users</h1><h2 id='sign-up-register'>Sign up/Register</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">User</span><span class="o">::</span><span class="no">Register</span><span class="o">.</span><span class="p">(</span><span class="ss">params: </span><span class="n">params</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -375,7 +384,9 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint allows a new user to be registered.</p>
+<p>This endpoint allows a new user to be registered. After being registered,
+an email is sent to the user to confirm the email address thus confirming the
+account. Only after confirming the email address the user will be able to login.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://example.com/api/v1/users/register</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -535,7 +546,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>User&#39;s password</td>
 </tr>
 </tbody></table>
-<h2 id='public-profile'>Public Profile</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">User</span><span class="o">::</span><span class="no">Show</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<h2 id='public-profile'>Public Profile</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">User</span><span class="o">::</span><span class="no">Show</span><span class="o">.</span><span class="p">(</span><span class="ss">params: </span><span class="n">params</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -567,6 +578,229 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>Y</td>
 <td></td>
 <td>Requested User Id</td>
+</tr>
+</tbody></table>
+<h2 id='personal-profile'>Personal Profile</h2>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"career_history"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"personal_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rui"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"middle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baltazar"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1998-02-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nationality_country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"residence_country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"place_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coimbra"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"137"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"preferred_foot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EN"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"playing_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w"> </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goalkeeper"</span><span class="p">,</span><span class="w"> </span><span class="s2">"skill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0-5]"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"pro_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amateur"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_caps"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.google.com/img1.png"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This api endpoint should be used to fetch a particular user&#39;s profile</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://example.com/api/v1/user</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<p>N.A</p>
+<h2 id='update-personal-profile'>Update Personal Profile</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">User</span><span class="o">::</span><span class="no">Update</span><span class="o">.</span><span class="p">(</span><span class="ss">params: </span><span class="n">params</span><span class="p">,</span> <span class="ss">current_user: </span><span class="n">current_user</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"career_history"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"personal_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rui"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"middle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baltazar"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1998-02-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nationality_country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"residence_country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"place_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coimbra"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"137"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"preferred_foot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EN"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"playing_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w"> </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goalkeeper"</span><span class="p">,</span><span class="w"> </span><span class="s2">"skill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0-5]"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"pro_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amateur"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_caps"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.google.com/img1.png"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This api endpoint should be used to fetch a particular user&#39;s profile</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://example.com/api/v1/user</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>personal_profile</td>
+<td>Y</td>
+<td></td>
+<td>User&#39;s personal profile holder. It follows the next table params</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>Y</td>
+<td></td>
+<td>String with First Name</td>
+</tr>
+<tr>
+<td>middle_name</td>
+<td></td>
+<td></td>
+<td>String with Middle Name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>Y</td>
+<td></td>
+<td>String with Last Name</td>
+</tr>
+<tr>
+<td>birthday</td>
+<td>Y</td>
+<td></td>
+<td>String with Birthday. Preferred format: YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>nationality_country_code</td>
+<td></td>
+<td></td>
+<td>Country code in ISO Format</td>
+</tr>
+<tr>
+<td>residence_country_code</td>
+<td></td>
+<td></td>
+<td>Country code in ISO Format</td>
+</tr>
+<tr>
+<td>place_of_birth</td>
+<td></td>
+<td></td>
+<td>String with place of birth</td>
+</tr>
+<tr>
+<td>weight</td>
+<td></td>
+<td></td>
+<td>Float with weight</td>
+</tr>
+<tr>
+<td>height</td>
+<td></td>
+<td></td>
+<td>Float with height</td>
+</tr>
+<tr>
+<td>preferred_foot</td>
+<td></td>
+<td></td>
+<td>Choice between: [<code>right</code>, <code>left</code>, <code>both</code>]</td>
+</tr>
+<tr>
+<td>playing_positions</td>
+<td></td>
+<td></td>
+<td>Array with playing positions and skill. E.g. <code>[{ &quot;position&quot;: &quot;Goalkeeper&quot;, &quot;skill&quot;: 5 }]</code>. Available playing positions: [<code>Goalkeeper</code>, <code>Sweeper (Centre)</code>, <code>Defender (Right)</code>, <code>Defender (Left)</code>, <code>Defender (Centre)</code>, <code>Wing-back (Right)</code>, <code>Wing-back (Left)</code>, <code>Defensive Midfielder (Centre)</code>, <code>Midfielder (Right)</code>, <code>Midfielder (Left)</code>, <code>Midfielder (Centre)</code>, <code>Attacking Midfielder (Centre)</code>, <code>Winger (Right)</code>, <code>Winger (Left)</code>, <code>Second Striker (Centre)</code>, <code>Striker (Centre)</code>]</td>
+</tr>
+<tr>
+<td>pro_status</td>
+<td></td>
+<td></td>
+<td>Choice between: [<code>professional</code>, <code>semi-professional</code>, <code>amateur</code>]</td>
+</tr>
+<tr>
+<td>biography</td>
+<td></td>
+<td></td>
+<td>Text with user&#39;s biography</td>
+</tr>
+</tbody></table>
+<h2 id='update-personal-avatar'>Update Personal Avatar</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">User</span><span class="o">::</span><span class="no">Update</span><span class="o">.</span><span class="p">(</span><span class="ss">params: </span><span class="n">params</span><span class="p">,</span> <span class="ss">current_user: </span><span class="n">current_user</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"career_history"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"personal_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rui"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"middle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baltazar"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1998-02-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nationality_country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"residence_country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"place_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coimbra"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"137"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"preferred_foot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EN"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"playing_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w"> </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goalkeeper"</span><span class="p">,</span><span class="w"> </span><span class="s2">"skill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[0-5]"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"pro_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amateur"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_caps"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.google.com/img1.png"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This api endpoint should be used to fetch a particular user&#39;s profile</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST http://example.com/api/v1/user/avatar</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>avatar</td>
+<td>Y</td>
+<td></td>
+<td>formData with new image</td>
 </tr>
 </tbody></table>
 <h1 id='career-entries'>Career Entries</h1><h2 id='create'>Create</h2><pre class="highlight ruby tab-ruby"><code><span class="o">::</span><span class="no">V1</span><span class="o">::</span><span class="no">CareerEntry</span><span class="o">::</span><span class="no">Create</span><span class="o">.</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
