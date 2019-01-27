@@ -3,7 +3,7 @@
 ## Create
 
 ```ruby
-::V1::CareerEntry::Create.(params)
+::V1::CareerEntry::Create.(params: params)
 ```
 
 > The above command returns JSON structured like this:
@@ -40,7 +40,7 @@ role_name | Y | | Which role the user was representing: `player`, `manager`, `co
 ## Update
 
 ```ruby
-::V1::CareerEntry::Update.(params)
+::V1::CareerEntry::Update.(params: params)
 ```
 
 > The above command returns JSON structured like this:
@@ -69,6 +69,7 @@ This endpoint allows a new user to be registered.
 
 Parameter | Mandatory | Default | Description
 --------- | --------- | ------- | -----------
+id | Y |  | Server id of career entry to be updated. Passed as part of the URL
 club_id | Y | | Club which the user represented
 start_date | Y | | Career entry Start date
 end_date | N |  | Career entry End date. Might be nil which would mean ongoing
@@ -77,7 +78,7 @@ role_name | Y | | Which role the user was representing: `player`, `manager`, `co
 ## Delete
 
 ```ruby
-::V1::CareerEntry::Delete.(params)
+::V1::CareerEntry::Delete.(params: params)
 ```
 
 > The above command returns JSON structured like this:
@@ -98,4 +99,6 @@ This endpoint allows a new user to be registered.
 
 ### Query Parameters
 
--
+Parameter | Mandatory | Default | Description
+--------- | --------- | ------- | -----------
+id | Y |  | Server id of career entry to be deleted. Passed as part of the URL
